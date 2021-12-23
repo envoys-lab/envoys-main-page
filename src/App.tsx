@@ -7,9 +7,9 @@ const App: React.FC = () => {
     <>
       <Header />
       <div className="main"></div>
-      {/* <div className="footer">
+      <div className="footer">
         <Footer />
-      </div> */}
+      </div>
     </>
   );
 };
