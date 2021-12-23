@@ -17,6 +17,10 @@ import watsapp from "../../assets/images/footer_socials/watsapp.svg";
 import youtube from "../../assets/images/footer_socials/youtube.svg";
 
 const Footer: React.FC = () => {
+  const [email, setEmail] = React.useState<string>("");
+  function handleInputChange(e: any) {
+    setEmail(e.target.value);
+  }
   return (
     <FooterWrapper>
       <FooterContainer>
@@ -46,7 +50,12 @@ const Footer: React.FC = () => {
                 <img src={youtube} alt="" />
               </a>
             </div>
-            <JoinInput type="email" placeholder="Email adress" />
+            <JoinInput
+              value={email}
+              onChange={handleInputChange}
+              type="email"
+              placeholder="Email adress"
+            />
           </JoinWrapper>
           <FooterTopRight>
             <FooterTopRightColumn>
