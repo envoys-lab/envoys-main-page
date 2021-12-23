@@ -1,11 +1,16 @@
 import React from "react";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <>
       <Header />
-    </div>
+      <div className="main"></div>
+      {/* <div className="footer">
+        <Footer />
+      </div> */}
+    </>
   );
 };
 

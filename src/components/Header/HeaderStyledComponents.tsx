@@ -13,6 +13,7 @@ export const NavWrapper = styled.div<Props>`
   padding: 15px 10px 15px 60px;
   font-size: 14px;
   color: #133d65;
+  overflow-x: hidden;
   .logo {
     width: 220px;
     height: 30px;
@@ -35,7 +36,7 @@ export const NavInner = styled.div<Props>`
   background-color: #fff;
   transition: all 0.3s;
   @media (max-width: 768px) {
-    width: 70%;
+    width: 72%;
   }
   @media (max-width: 660px) {
     position: absolute;
