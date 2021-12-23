@@ -8,16 +8,11 @@ const AppStyle = styled.div`
 `
 
 
-const Ddd:React.FC = () => {
-  return <>dasdas</>
-}
-
 const App: React.FC = () => {
   return (
     <AppStyle>
       <Header />
       <Banner />
-      <Ddd/>
     </AppStyle>
   );
 };
