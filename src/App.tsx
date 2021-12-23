@@ -1,19 +1,20 @@
 import React from "react";
-import styled from "styled-components";
 import Banner from "./components/Banner/Banner";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-
-const AppStyle = styled.div`
-/* background: #7e7e7e; */
-`
 
 
 const App: React.FC = () => {
   return (
-    <AppStyle>
+    <>
       <Header />
+        <div className="main">
       <Banner />
-    </AppStyle>
+      </div>
+      <div className="footer">
+        {/* <Footer /> */}
+      </div>
+    </>
   );
 };
 

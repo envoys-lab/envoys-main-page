@@ -13,6 +13,7 @@ export const NavWrapper = styled.div<Props>`
   padding: 15px 10px 15px 60px;
   font-size: 14px;
   color: #133d65;
+  overflow-x: hidden;
   .logo {
     width: 220px;
     height: 30px;
@@ -35,7 +36,7 @@ export const NavInner = styled.div<Props>`
   background-color: #fff;
   transition: all 0.3s;
   @media (max-width: 768px) {
-    width: 70%;
+    width: 72%;
   }
   @media (max-width: 660px) {
     position: absolute;
@@ -48,8 +49,8 @@ export const NavInner = styled.div<Props>`
     justify-content: flex-start;
     margin: 0;
     padding: 40px 10px 0;
-    -webkit-box-shadow: -10px 0px 14px -5px rgba(0, 0, 0, 0.79);
-    box-shadow: -10px 0px 14px -5px rgba(0, 0, 0, 0.79);
+    -webkit-box-shadow: -10px 0px 20px -14px rgb(0 0 0 / 79%);
+    box-shadow: -10px 0px 20px -14px rgb(0 0 0 / 79%);
   }
 `;
 export const BurgerBtn = styled.button<Props>`

@@ -11,7 +11,7 @@ import {
   NavInner,
   BurgerBtn,
   Languages,
-} from "./StyledComponents";
+} from "./HeaderStyledComponents";
 import logo from "../../assets/images/logo.svg";
 import openBurger from "../../assets/images/icons/openBurger.svg";
 import closeBurger from "../../assets/images/icons/closeBurger.svg";
