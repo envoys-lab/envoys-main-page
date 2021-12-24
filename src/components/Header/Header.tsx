@@ -1,4 +1,4 @@
-import React from "react";
+import React, { SetStateAction } from "react";
 import {
   ActionsItem,
   ActionsWrapper,
@@ -18,11 +18,11 @@ import closeBurger from "../../assets/images/icons/closeBurger.svg";
 import "../../assets/fonts/css/fontello.css";
 import { NavLink } from "react-router-dom";
 
-interface HeaderProps {
+interface Props {
   children?: React.ReactChild | React.ReactNode;
 }
-const Header: React.FC<HeaderProps> = () => {
-  const [activeActions, setActiveActions] = React.useState(0);
+const Header: React.FC<Props> = () => {
+  const [activeActions, setActiveActions] = React.useState<number>(0);
   const [burger, setBurger] = React.useState(false);
   return (
     <NavWrapper>
