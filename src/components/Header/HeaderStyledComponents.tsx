@@ -13,7 +13,6 @@ export const NavWrapper = styled.div<Props>`
   padding: 15px 10px 15px 60px;
   font-size: 14px;
   color: #133d65;
-  overflow-x: hidden;
   .logo {
     width: 220px;
     height: 30px;
@@ -220,14 +219,17 @@ export const Languages = styled.div<Props>`
   flex-direction: column;
   z-index: 10;
   span {
-    padding: 10px 0;
+    padding: 0 0 10px;
     cursor: pointer;
     &:first-child {
-      padding: 10px 0 0;
+      padding: 10px 0 10px;
     }
     &:hover {
       color: #f48020;
     }
+  }
+  .selected_lang {
+    color: #f48020;
   }
   @media (max-width: 660px) {
     position: relative;
