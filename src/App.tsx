@@ -6,8 +6,10 @@ import Header from "./components/Header/Header";
 const App: React.FC = () => {
   return (
     <>
-      {/* <Header /> */}
-      <div className="main">{/* <Banner /> */}</div>
+      <Header />
+      <div className="main">
+        <Banner />
+      </div>
       <div className="footer">
         <Footer />
       </div>
