@@ -12,7 +12,7 @@ const App: React.FC = () => {
       <Banner />
       </div>
       <div className="footer">
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </>
   );
