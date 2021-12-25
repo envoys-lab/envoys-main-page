@@ -1,20 +1,22 @@
 import React from "react";
-<<<<<<< HEAD
+import { Route, Routes } from "react-router";
 import './app.css';
-=======
 import About from "./components/About/About";
->>>>>>> 1f5b6c6e855d3f64450bffcd828a47e2f00dad80
 import Banner from "./components/Banner/Banner";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import AllInfo from "./pages/allInfo/AllInfo";
+import Home from "./pages/home/Home";
 
 const App: React.FC = () => {
   return (
     <>
       <Header />
       <div className="main">
-        <Banner />
-        <About />
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/allinfo" element={<AllInfo/>} />
+        </Routes>
       </div>
       <div className="footer">
         <Footer />
