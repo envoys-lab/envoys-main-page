@@ -31,6 +31,13 @@ const Banner:React.FC = () => {
                         
                         <BannerImgWrap>
                             <BannerImg src={bg} alt="" />
+
+                            {/* <div className="card">
+
+                                <div className="front">
+                                    <BannerImg src={bg} alt="" />
+                                </div>
+                            </div> */}
                         </BannerImgWrap>
                     </BannerFlex>
         
