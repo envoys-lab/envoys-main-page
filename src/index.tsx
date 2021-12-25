@@ -15,13 +15,13 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    position: relative;
     overflow-x: hidden;
     #root {
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
-}
+   position: relative;
+  }
 .main {
 	flex: 1 0 auto;
 }
