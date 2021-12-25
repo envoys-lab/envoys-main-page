@@ -52,6 +52,7 @@ export const BannertextsWrap = styled.div`
 
 export const BannerImgWrap = styled.div`
   margin: 1rem 0;
+  position: relative;
   @media (max-width: 768px) {
     order: 0;
     margin-top: 1rem;

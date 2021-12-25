@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import baner from "../../assets/images/banner2.svg";
+import baner from "../../assets/images/banner.svg";
 import logo from "../../assets/images/smolbt.jpg";
 
 const Wrapper = styled.div`

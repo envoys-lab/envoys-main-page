@@ -52,6 +52,7 @@ export const NavInner = styled.div<Props>`
     justify-content: flex-start;
     margin: 0;
     padding: 40px 10px 0;
+    z-index: 1;
     -webkit-box-shadow: -10px 0px 20px -14px rgb(0 0 0 / 79%);
     box-shadow: -10px 0px 20px -14px rgb(0 0 0 / 79%);
   }

@@ -37,6 +37,11 @@ const GlobalStyle = createGlobalStyle`
 	flex: 0 0 auto;
 }
   }
+.container{
+  max-width: 990px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
 `;
 
 ReactDOM.render(
