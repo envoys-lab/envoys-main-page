@@ -24,11 +24,17 @@ const GlobalStyle = createGlobalStyle`
   }
 .main {
 	flex: 1 0 auto;
+  background: #E5E5E5;
 }
 .footer {
 	flex: 0 0 auto;
 }
   }
+.container{
+  max-width: 990px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
 `;
 
 ReactDOM.render(

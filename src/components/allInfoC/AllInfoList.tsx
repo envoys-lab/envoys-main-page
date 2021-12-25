@@ -1,5 +1,4 @@
 import React from 'react'
-import { AllInfoWrap } from '../../pages/allInfo/AllInfoStyle'
 import { Flex } from '../Banner/StyledComponents'
 import AllInfoListItem from './AllInfoListItem'
 import AllInfoListItem2 from './AllInfoListItem2'
