@@ -22,6 +22,14 @@ const GlobalStyle = createGlobalStyle`
 	min-height: 100%;
    position: relative;
   }
+  .App {
+     width: 100%;
+  }
+  .container {
+     max-width: 990px;
+     margin: 0 auto;
+     padding: 0 15px;
+  }
 .main {
 	flex: 1 0 auto;
 }
