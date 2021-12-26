@@ -1,4 +1,4 @@
-import React, { SetStateAction } from "react";
+import React from "react";
 import {
   ActionsItem,
   ActionsWrapper,
@@ -6,11 +6,13 @@ import {
   MenuListItem,
   NavWrapper,
   AccountPopUp,
-  AccountPopUpList,
+  PopUpList,
   AccountPopUpListItem,
   NavInner,
   BurgerBtn,
   Languages,
+  InfoWrapper,
+  InfoListItem,
 } from "./HeaderStyledComponents";
 import logo from "../../assets/images/logo.svg";
 import openBurger from "../../assets/images/icons/openBurger.svg";
@@ -33,22 +35,97 @@ const Header: React.FC<Props> = () => {
       </NavLink>
       <NavInner burger={burger}>
         <MenuList>
+          <MenuListItem
+            activeActions={activeActions}
+            onClick={() =>
+              activeActions !== 3 ? setActiveActions(3) : setActiveActions(0)
+            }
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16px"
+              height="16px"
+              viewBox="0 0 24 24"
+              fill="#133D65"
+              className="menu_icons1"
+            >
+              <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z" />
+            </svg>
+            <span className="menu_link-text">О бирже</span>
+          </MenuListItem>
+          {activeActions === 3 && (
+            <InfoWrapper>
+              <PopUpList>
+                <InfoListItem>
+                  <NavLink to="/">Общая информация</NavLink>
+                </InfoListItem>
+                <InfoListItem>
+                  <NavLink to="/">Совет директоров</NavLink>
+                </InfoListItem>
+                <InfoListItem>
+                  <NavLink to="/">Ревизионная комиссия</NavLink>
+                </InfoListItem>
+                <InfoListItem>
+                  <NavLink to="/">Ревизионная комиссия</NavLink>
+                </InfoListItem>
+                <InfoListItem>
+                  <NavLink to="/">Участники торгов</NavLink>
+                </InfoListItem>
+                <InfoListItem>
+                  <NavLink to="/">Наши партнеры</NavLink>
+                </InfoListItem>
+                <InfoListItem>
+                  <NavLink to="/">Стратегия развития</NavLink>
+                </InfoListItem>
+                <InfoListItem>
+                  <NavLink to="/">Стратегия развития</NavLink>
+                </InfoListItem>
+              </PopUpList>
+            </InfoWrapper>
+          )}
           <MenuListItem>
-            <NavLink to="/exchange">
-              <span className="menu_icon icon-exchange"></span>
-              <span className="menu_link-text">Exchange</span>
+            <NavLink to="/base">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="16px"
+                height="16px"
+                fill="#133D65"
+                className="menu_icons1"
+              >
+                <path d="M 6 2 C 4.895 2 4 2.895 4 4 L 4 20 C 4 21.105 4.895 22 6 22 L 18 22 C 19.105 22 20 21.105 20 20 L 20 4 C 20 2.895 19.105 2 18 2 L 6 2 z M 6 4 L 18 4 L 18 8 L 6 8 L 6 4 z M 6 10 L 18 10 L 18 14 L 6 14 L 6 10 z M 6 16 L 18 16 L 18 20 L 6 20 L 6 16 z"></path>
+              </svg>
+              <span className="menu_link-text">Нормативная база</span>
             </NavLink>
           </MenuListItem>
           <MenuListItem>
-            <NavLink to="/defi">
-              <span className="menu_icon icon-trading"></span>
-              <span className="menu_link-text">DeFi</span>
+            <NavLink to="/statistic">
+              <svg
+                width="16px"
+                height="16px"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="#133D65"
+                className="menu_icons1"
+              >
+                <path d="M 3.984375 2.9863281 A 1.0001 1.0001 0 0 0 3 4 L 3 19 C 3 20.093063 3.9069372 21 5 21 L 20 21 A 1.0001 1.0001 0 1 0 20 19 L 5 19 L 5 4 A 1.0001 1.0001 0 0 0 3.984375 2.9863281 z M 18.980469 6.9902344 A 1.0001 1.0001 0 0 0 18.292969 7.2929688 L 14.984375 10.601562 L 12.691406 8.4082031 A 1.0001 1.0001 0 0 0 11.304688 8.4121094 L 7.3046875 12.28125 A 1.0001 1.0001 0 1 0 8.6953125 13.71875 L 12.003906 10.517578 L 14.308594 12.722656 A 1.0001 1.0001 0 0 0 15.707031 12.707031 L 19.707031 8.7070312 A 1.0001 1.0001 0 0 0 18.980469 6.9902344 z"></path>
+              </svg>
+              <span className="menu_link-text">Статистика торгов</span>
             </NavLink>
           </MenuListItem>
           <MenuListItem>
-            <NavLink to="/nft">
-              <span className="menu_icon icon-profile"></span>
-              <span className="menu_link-text">NFT</span>
+            <NavLink to="/education">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 64 64"
+                width="18px"
+                height="18px"
+                fill="#133D65"
+                className="menu_icons1"
+              >
+                <path d="M62.373,38.765A3.44,3.44,0,0,0,60,36.164V25a1,1,0,0,0-.591-.912l-16-7.173a1,1,0,1,0-.818,1.824L54.325,24H33.763A4.024,4.024,0,0,0,30,22c-2.243,0-4,1.317-4,3s1.757,3,4,3a4.024,4.024,0,0,0,3.763-2H54.325L30,36.9,3.445,25,30,13.1l8.591,3.85a1,1,0,1,0,.818-1.824l-9-4.034a1,1,0,0,0-.818,0l-29,13a1,1,0,0,0,0,1.824L10,30.13V46.646a3.018,3.018,0,0,0,1.891,2.8A49.169,49.169,0,0,0,30,52.986,49.227,49.227,0,0,0,48.114,49.44,3.013,3.013,0,0,0,50,46.65V30.13l8-3.587v9.621a3.44,3.44,0,0,0-2.373,2.6L54.02,46.8A1,1,0,0,0,55,48h8a1,1,0,0,0,.98-1.2ZM30,26c-1.221,0-2-.592-2-1s.779-1,2-1,2,.592,2,1S31.221,26,30,26ZM48,46.65a1,1,0,0,1-.618.929,46.1,46.1,0,0,1-34.759,0A1,1,0,0,1,12,46.646V31.027l17.591,7.885a.994.994,0,0,0,.818,0L48,31.026ZM56.22,46l1.368-6.843a1.44,1.44,0,0,1,2.824,0L61.78,46Z"></path>
+              </svg>
+              <span className="menu_link-text">Учебный центр</span>
             </NavLink>
           </MenuListItem>
         </MenuList>
@@ -63,7 +140,7 @@ const Header: React.FC<Props> = () => {
           </ActionsItem>
           {activeActions === 1 && (
             <AccountPopUp>
-              <AccountPopUpList>
+              <PopUpList>
                 <AccountPopUpListItem>
                   <span className="popUp_icon icon-wallet"></span>
                   <span>Connect wallet</span>
@@ -76,7 +153,7 @@ const Header: React.FC<Props> = () => {
                   <span className="popUp_icon icon-sign-out"></span>
                   <span>Sign Out</span>
                 </AccountPopUpListItem>
-              </AccountPopUpList>
+              </PopUpList>
             </AccountPopUp>
           )}
           <ActionsItem

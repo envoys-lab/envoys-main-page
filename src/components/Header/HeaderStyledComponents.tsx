@@ -10,17 +10,18 @@ export const NavWrapper = styled.div<Props>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 10px 15px 60px;
+  padding: 15px 20px 15px 60px;
   font-size: 14px;
   color: #133d65;
   .logo {
     width: 220px;
     height: 30px;
   }
-  @media (max-width: 860px) {
+  @media (max-width: 1210px) {
     padding: 15px 10px 15px 15px;
   }
   @media (max-width: 768px) {
+    padding: 15px 10px 15px 15px;
     .logo {
       width: 160px;
       height: 20px;
@@ -28,16 +29,19 @@ export const NavWrapper = styled.div<Props>`
   }
 `;
 export const NavInner = styled.div<Props>`
-  width: 63%;
+  width: 70%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
   transition: all 0.3s;
+  @media (max-width: 1210px) {
+    width: 74%;
+  }
   @media (max-width: 768px) {
     width: 72%;
   }
-  @media (max-width: 660px) {
+  @media (max-width: 1100px) {
     position: absolute;
     width: 240px;
     height: 100vh;
@@ -64,7 +68,7 @@ export const BurgerBtn = styled.button<Props>`
   img {
     width: 100%;
   }
-  @media (max-width: 660px) {
+  @media (max-width: 1100px) {
     display: block;
   }
 `;
@@ -73,7 +77,8 @@ export const MenuList = styled.ul<Props>`
   list-style: none;
   display: flex;
   align-items: center;
-  @media (max-width: 660px) {
+  position: relative;
+  @media (max-width: 1100px) {
     flex-direction: column;
     align-items: flex-start;
     border-bottom: 1px solid #e5e5e5;
@@ -83,6 +88,19 @@ export const MenuList = styled.ul<Props>`
 
 export const MenuListItem = styled.li<Props>`
   padding: 0 10px;
+  text-decoration: none;
+  color: ${(props) => (props.activeActions == 3 ? "#f48020" : "#133d65")};
+  display: flex;
+  align-items: center;
+  transition: all 0.5s;
+  cursor: pointer;
+  &:hover {
+    color: #f48020;
+    .menu_icons1 {
+      opacity: 1;
+      fill: #f48020;
+    }
+  }
   a {
     text-decoration: none;
     color: #133d65;
@@ -93,11 +111,14 @@ export const MenuListItem = styled.li<Props>`
       color: #f48020;
     }
   }
-  .menu_icon {
-    font-size: 16px;
-    margin-right: 8px;
+  .menu_icons1 {
+    opacity: 0.3;
+    margin-right: 10px;
+    fill: ${(props) => (props.activeActions == 3 ? "#f48020" : "#133d65")};
+    opacity: ${(props) => (props.activeActions == 3 ? "1" : "0.3")};
+    transition: all 0.5s;
   }
-  @media (max-width: 660px) {
+  @media (max-width: 1100px) {
     padding: 10px 0;
     .menu_icon {
       margin-right: 0;
@@ -113,7 +134,7 @@ export const ActionsWrapper = styled.div<Props>`
     display: flex;
     align-items: center;
   }
-  @media (max-width: 660px) {
+  @media (max-width: 1100px) {
     flex-direction: column;
     align-items: flex-start;
     .actions_item {
@@ -147,8 +168,9 @@ export const ActionsItem = styled.div<Props>`
   }
   .icon-profile {
     font-size: 16px;
+    margin-right: 6px;
   }
-  @media (max-width: 660px) {
+  @media (max-width: 1100px) {
     border-left: none;
     padding: 10px 0 10px 4px;
     &:first-child {
@@ -156,6 +178,7 @@ export const ActionsItem = styled.div<Props>`
     }
     .burger_icons {
       display: block;
+      margin-right: 10px;
     }
   }
 `;
@@ -169,7 +192,7 @@ export const AccountPopUp = styled.div<Props>`
   bottom: -10px;
   transform: translateY(100%);
   z-index: 10;
-  @media (max-width: 660px) {
+  @media (max-width: 1100px) {
     position: relative;
     width: 100%;
     bottom: 0;
@@ -177,7 +200,7 @@ export const AccountPopUp = styled.div<Props>`
     box-shadow: none;
   }
 `;
-export const AccountPopUpList = styled.ul<Props>`
+export const PopUpList = styled.ul<Props>`
   padding: 0;
   margin: 0;
   list-style: none;
@@ -185,7 +208,7 @@ export const AccountPopUpList = styled.ul<Props>`
     margin-right: 10px;
     font-size: 16px;
   }
-  @media (max-width: 660px) {
+  @media (max-width: 1100px) {
     .popUp_icon {
       margin-right: 0;
     }
@@ -200,7 +223,7 @@ export const AccountPopUpListItem = styled.li<Props>`
   &:hover {
     color: #f48020;
   }
-  @media (max-width: 660px) {
+  @media (max-width: 1100px) {
     padding: 10px 0;
   }
 `;
@@ -232,21 +255,67 @@ export const Languages = styled.div<Props>`
   .selected_lang {
     color: #f48020;
   }
-  @media (max-width: 660px) {
+  @media (max-width: 1100px) {
     position: relative;
     width: 100%;
     transform: translateY(0);
     box-shadow: none;
     text-align: left;
-    width: 100%;
     span {
-      padding-left: 20px;
+      padding-left: 25px;
       &:first-child {
-        padding: 10px 0 0 20px;
+        padding: 10px 0 10px 25px;
       }
     }
   }
 `;
 
+export const InfoWrapper = styled.div<Props>`
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transform: translateY(100%);
+  border-radius: 14px;
+  background-color: #fff;
+  padding: 14px 20px 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
+  z-index: 10;
+  @media (max-width: 1100px) {
+    position: relative;
+    transform: translateY(0);
+    box-shadow: none;
+    bottom: 0;
+    padding: 10px 10px 10px;
+  }
+`;
 
-
+export const InfoListItem = styled.li<Props>`
+  padding: 10px 0;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: #133d65;
+    opacity: 0.05;
+    border-radius: 4px;
+  }
+  &:last-child {
+    &::after {
+      width: 0;
+      height: 0;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: #0f2b46;
+    padding-left: 15px;
+    transition: all 0.5s;
+    &:hover {
+      color: #f48020;
+    }
+  }
+`;

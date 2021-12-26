@@ -24,8 +24,14 @@ const Title = styled.h2`
     font-size: 38px;
     line-height: 0;
   }
-  @media (max-width: 315px) {
-    font-size: 36px;
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
+  @media (max-width: 360px) {
+    font-size: 24px;
+  }
+  @media (max-width: 320px) {
+    font-size: 18px;
   }
 `;
 
@@ -42,8 +48,9 @@ const Subtitle = styled.p`
     font-size: 16px;
     margin-top: 20px;
   }
-  @media (max-width: 443px) {
-    font-size: 14px;
+  @media (max-width: 480px) {
+    font-size: 12px;
+    line-height: 14px;
   }
 `;
 

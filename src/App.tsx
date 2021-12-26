@@ -1,29 +1,46 @@
 import React from "react";
-import { Route, Routes } from "react-router";
-import './app.css';
+import BreadCrumbs from "./components/BreadCrumbs/BreadCrumbs";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import Search from "./components/Search/Search";
+import { Route, Routes } from "react-router";
 import AllInfo from "./pages/allInfo/AllInfo";
 import Home from "./pages/home/Home";
 import Listing from "./components/Listing/Listing";
 
 const App: React.FC = () => {
   return (
-    <>
+    <div className="App">
       <Header />
+      <BreadCrumbs />
+      <div className="container">
+        <Search />
+      </div>
       <div className="main">
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/allinfo" element={<AllInfo/>} />
-            <Route path="/listing" element={<Listing/>} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/allinfo"
+            element={
+              <div className="container">
+                <AllInfo />
+              </div>
+            }
+          />
+          <Route
+            path="/listing"
+            element={
+              <div className="container">
+                <Listing />
+              </div>
+            }
+          />
+        </Routes>
       </div>
       <div className="footer">
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 
