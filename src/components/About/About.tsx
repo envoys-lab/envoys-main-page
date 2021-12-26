@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import baner from "../../assets/images/banner.svg";
 import logo from "../../assets/images/smolbt.jpg";
+import Proposal from "../proposal/Proposal";
 
 const Wrapper = styled.div`
   max-width: 1140px;
@@ -224,6 +225,8 @@ const About: FC = () => {
           </CardList>
         </Card>
       </CardWrapper>
+
+      <Proposal/>
     </Wrapper>
   );
 };
