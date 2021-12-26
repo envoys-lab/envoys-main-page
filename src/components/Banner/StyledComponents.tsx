@@ -40,7 +40,6 @@ export const BannerFlex = styled(Flex)`
 `;
 
 export const BannertextsWrap = styled.div`
-  margin-top: 5%;
   width: auto;
 
   @media (max-width: 768px) {
@@ -53,6 +52,7 @@ export const BannertextsWrap = styled.div`
 export const BannerImgWrap = styled.div`
   margin: 1rem 0;
   position: relative;
+  max-width: 50%;
   @media (max-width: 768px) {
     order: 0;
     margin-top: 1rem;
@@ -169,7 +169,7 @@ export const BannerLink = styled.a`
 `;
 
 export const BannerLinkPos = styled(Flex)`
-  margin-top: 20vh;
+  margin-top: 80px;
   @media (max-width: 1180px) {
     margin-top: 50px;
   }
