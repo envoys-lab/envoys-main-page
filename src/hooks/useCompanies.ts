@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import Config from "../config";
 
 interface Company {
     id: number
@@ -15,8 +16,7 @@ const useCompanies = (category: string): Company[] => {
     const [companies, setCompanies] = React.useState([]);
 
     React.useEffect(() => {
-        console.log(`http://localhost:3001/list/0/${category}`);
-        axios.get(`http://localhost:3001/list/0/${category}`).then(res => {
+        axios.get(`${Config.api}/list/0/${category}`).then(res => {
             setCompanies(res.data);
         })
     }, [])

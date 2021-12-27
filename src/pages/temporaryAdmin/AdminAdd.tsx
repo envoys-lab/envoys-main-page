@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useParams } from "react-router";
 import useCompany, { Company } from "../../hooks/useCompany";
+import Config from "../../config";
 
 const AdminAdd: React.FC<{id?: number}> = ({id}) => {
     const params = useParams();
@@ -131,7 +132,7 @@ const AdminAdd: React.FC<{id?: number}> = ({id}) => {
         })
 
         const suffix = company ? `/${company.id}` : "";
-        axios.post(`http://localhost:3001/add${suffix}`, {
+        axios.post(`${Config.api}/add${suffix}`, {
             ...formData,
             category: category
         }).then(res => {
@@ -143,7 +144,7 @@ const AdminAdd: React.FC<{id?: number}> = ({id}) => {
 
     const remove = () => {
 
-        axios.post("http://localhost:3001/remove/"+ targetId).then(res => {
+        axios.post("${Config.api}/remove/"+ targetId).then(res => {
             console.log(res.data);
         });
     }

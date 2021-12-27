@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import Config from "../config";
 
 export interface Company {
     id: number;
@@ -31,7 +32,7 @@ const useCompany = (id: number): Company | undefined => {
 
     React.useEffect(() => {
         if(!id) return;
-        axios.get(`http://localhost:3001/get/${id}`).then(res => {
+        axios.get(`${Config.api}/get/${id}`).then(res => {
             if(res.status == 200) {
                 console.log(res.data);
                 setCompany(res.data);
