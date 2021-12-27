@@ -225,8 +225,6 @@ const About: FC = () => {
           </CardList>
         </Card>
       </CardWrapper>
-
-      <Proposal/>
     </Wrapper>
   );
 };
