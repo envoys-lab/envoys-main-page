@@ -20,12 +20,12 @@ const AllInfoList: React.FC<{id: number}> = ({id}) => {
 
     const company = useCompany(id);
     const editUri = "/admin/add/" + (company ? company.id : "");
-    const admin = useAdmin();
+    const { isAdmin } = useAdmin();
     return (
         <AllInfoListBlock>
             <AllInfoListTitle>
                 {company && company.name}	{company && company.paper} 
-                {admin && <Link to={editUri}>Edit</Link>}
+                {isAdmin && <Link to={editUri}>Edit</Link>}
             </AllInfoListTitle>
 
             <AllInfoListWrap>

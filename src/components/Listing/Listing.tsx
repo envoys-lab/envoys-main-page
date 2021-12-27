@@ -176,7 +176,7 @@ const Listing: FC = () => {
   ];
   const categoryB = useCompanies("b");
   const categoryC = useCompanies("c");
-  const admin = useAdmin();
+  const { isAdmin } = useAdmin();
 
   return (
     <>
@@ -187,7 +187,7 @@ const Listing: FC = () => {
             Категория{" "}
             <span style={{ color: "#F48020", marginLeft: "10px" }}> B</span>
           </HeadingTitle>
-          {admin && <Link to={"/admin/add/b"}>Add</Link>}
+          {isAdmin && <Link to={"/admin/add/b"}>Add</Link>}
         </Heading>
         <BanksWrapper>
           {categoryB.map((el, idx) => (
@@ -235,7 +235,7 @@ const Listing: FC = () => {
             Категория{" "}
             <span style={{ color: "#F48020", marginLeft: "10px" }}>C</span>
           </HeadingTitle>
-          {admin && <Link to={"/admin/add/c"}>Add</Link>}
+          {isAdmin && <Link to={"/admin/add/c"}>Add</Link>}
         </Heading>
         <BanksWrapper>
           {categoryC.map((el, idx) => (

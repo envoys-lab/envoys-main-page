@@ -3,11 +3,21 @@ import BreadCrumbs from "./components/BreadCrumbs/BreadCrumbs";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useParams } from "react-router";
 import AllInfo from "./pages/allInfo/AllInfo";
 import Home from "./pages/home/Home";
 import Listing from "./components/Listing/Listing";
 import AdminAdd from "./pages/temporaryAdmin/AdminAdd";
+
+// TODO: Refactoring
+const Auth = () => {
+  const { key } = useParams();
+  localStorage.setItem("admin_auth_key", key);
+
+  return <>
+    SUCCESS set {localStorage.getItem("admin_auth_key")}
+  </>;
+}
 
 const App: React.FC = () => {
   const [activeActions, setActiveActions] = React.useState(0);
@@ -49,6 +59,14 @@ const App: React.FC = () => {
               </div>
             }
           />
+
+          <Route
+            path="/auth/:key"
+            element={
+              <Auth />
+            }
+          />
+
         </Routes>
       </div>
       <div className="footer">
