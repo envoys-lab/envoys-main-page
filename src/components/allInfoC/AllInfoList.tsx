@@ -5,6 +5,7 @@ import AllInfoListItem2 from './AllInfoListItem2'
 import { AllInfoListTitle, AllInfoListBlock, AllInfoListIs, AllInfoListWrap, AllInfoListIs2, AllInfoListFlex } from './AllInfoStyledComponents'
 import useCompany, { Company } from '../../hooks/useCompany';
 import { Link } from 'react-router-dom'
+import useAdmin from 'hooks/useAdmin'
 
 const AllInfoList: React.FC<{id: number}> = ({id}) => {
     const [info2, setInfo2] = React.useState([
@@ -19,11 +20,12 @@ const AllInfoList: React.FC<{id: number}> = ({id}) => {
 
     const company = useCompany(id);
     const editUri = "/admin/add/" + (company ? company.id : "");
+    const admin = useAdmin();
     return (
         <AllInfoListBlock>
             <AllInfoListTitle>
                 {company && company.name}	{company && company.paper} 
-                <Link to={editUri}>Edit</Link> {/* TODO: admin only */}
+                {admin && <Link to={editUri}>Edit</Link>}
             </AllInfoListTitle>
 
             <AllInfoListWrap>

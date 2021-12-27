@@ -4,6 +4,7 @@ import LisingHeader from "./lisingHeader";
 import styled from "styled-components";
 import { Link, NavLink } from 'react-router-dom';
 import useCompanies from '../../hooks/useCompanies';
+import useAdmin from "hooks/useAdmin";
 
 const Wrapper = styled.div`
   max-width: 959px;
@@ -175,7 +176,8 @@ const Listing: FC = () => {
   ];
   const categoryB = useCompanies("b");
   const categoryC = useCompanies("c");
- 
+  const admin = useAdmin();
+
   return (
     <>
       <LisingHeader headerItem={headerItem} />
@@ -185,7 +187,7 @@ const Listing: FC = () => {
             Категория{" "}
             <span style={{ color: "#F48020", marginLeft: "10px" }}> B</span>
           </HeadingTitle>
-          <Link to={"/admin/add/b"}>Add</Link> {/* TODO: admin only */}
+          {admin && <Link to={"/admin/add/b"}>Add</Link>}
         </Heading>
         <BanksWrapper>
           {categoryB.map((el, idx) => (
@@ -233,7 +235,7 @@ const Listing: FC = () => {
             Категория{" "}
             <span style={{ color: "#F48020", marginLeft: "10px" }}>C</span>
           </HeadingTitle>
-          <Link to={"/admin/add/c"}>Add</Link> {/* TODO: admin only */}
+          {admin && <Link to={"/admin/add/c"}>Add</Link>}
         </Heading>
         <BanksWrapper>
           {categoryC.map((el, idx) => (
