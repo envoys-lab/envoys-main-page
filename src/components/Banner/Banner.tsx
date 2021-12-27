@@ -1,4 +1,6 @@
 import React from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import {
   BannerBtn,
   BannerBtnOrange,
@@ -20,11 +22,14 @@ import sub from "../../assets/images/play-icon.png";
 import bg from "../../assets/images/banner.svg";
 
 const Banner: React.FC = () => {
+  React.useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
   return (
     <BannerWrap>
       <Container>
         <Flex direction="column" align="center" justify="center" height="100%">
-          <BannerFlex justify="space-between" align="center">
+          <BannerFlex justify="space-between" align="center" data-aos="fade-up">
             <BannertextsWrap>
               <BannerTitle>Безопасность</BannerTitle>
               <BannerTitleOrange>Скорость</BannerTitleOrange>
