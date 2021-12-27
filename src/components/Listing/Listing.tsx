@@ -123,18 +123,23 @@ const ResponsiveBankWrapper = styled.div`
   display: none;
   @media (max-width: 806px) {
     display: flex;
+    justify-content: center;
+    border: none;
   }
 `;
 // responsive bank - RB
 
 const RBItem = styled.div`
-  max-width: 350px;
+  width: 350px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   border: 1px solid #e8e8ea;
   border-radius: 13px;
   margin-bottom: 10px;
+  @media (max-width: 380px) {
+    width: 300px;
+  }
 `;
 const RBHeaderItem = styled.span`
   font-style: normal;
@@ -352,6 +357,31 @@ const Listing: FC = () => {
             </BankItem>
           ))}
         </BanksWrapper>
+        <ResponsiveBankWrapper>
+          {categoryB.map((el, idx) => (
+            <RBItem>
+              <BankName to="/allinfo">
+                <RBHeaderItem>{headerItem[0]}:</RBHeaderItem> {el.name}
+              </BankName>
+              <RBPriceItems>
+                <RBHeaderItem>{headerItem[1]}:</RBHeaderItem> {el.paper}
+              </RBPriceItems>
+              <RBPriceItems>
+                <RBHeaderItem>{headerItem[2]}:</RBHeaderItem> {el.lastPrice}
+              </RBPriceItems>
+              <RBPriceItems>
+                <RBHeaderItem>{headerItem[3]}:</RBHeaderItem>{" "}
+                {el.capitalization}
+              </RBPriceItems>
+              <RBPriceItems>
+                <RBHeaderItem>{headerItem[4]}:</RBHeaderItem> {el.quantity}
+              </RBPriceItems>
+              <RBPriceItems>
+                <RBHeaderItem>{headerItem[5]}</RBHeaderItem>
+              </RBPriceItems>
+            </RBItem>
+          ))}
+        </ResponsiveBankWrapper>
       </Wrapper>
     </>
   );
