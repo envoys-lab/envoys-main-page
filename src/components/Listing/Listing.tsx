@@ -13,12 +13,12 @@ const Wrapper = styled.div`
 `;
 
 const Heading = styled.div`
-  box-sizing: border-box;
   padding: 23px 0 19px 25px;
   background: #f9f9f9;
   width: 100%;
   border-radius: 13px 13px 0 0;
   margin-bottom: 9px;
+  box-sizing: border-box;
 `;
 
 const HeadingTitle = styled.h2`
@@ -39,6 +39,7 @@ const BanksWrapper = styled.div`
   padding: 0 46px 22px 22px;
   background: white;
   border-radius: 0 0 13px 13px;
+  box-sizing: border-box;
   @media (max-width: 806px) {
     display: none;
   }
@@ -55,6 +56,10 @@ const BankName = styled(NavLink)`
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  width: 139px;
+  @media (max-width: 806px) {
+    width: 197px;
+  }
 `;
 
 const Header = styled.div`
@@ -81,7 +86,8 @@ const BankItem = styled.div`
     height: 2px;
     border-radius: 4px;
     width: 100%;
-    top: 45px;
+    left: 0;
+    bottom: 0;
     opacity: 0.05;
     &:last-child {
       background: #000;
@@ -95,6 +101,11 @@ const PriceItems = styled.span`
   font-size: 12px;
   line-height: 14px;
   color: #133d65;
+  width: 89px;
+  text-align: end;
+  &:nth-child(3) {
+    text-align: end;
+  }
 `;
 
 const Border = styled.div`
@@ -112,7 +123,6 @@ const ResponsiveBankWrapper = styled.div`
   display: none;
   @media (max-width: 806px) {
     display: flex;
-    border: none;
   }
 `;
 // responsive bank - RB
@@ -134,6 +144,7 @@ const RBHeaderItem = styled.span`
   color: rgba(19, 61, 101, 0.7);
   max-width: 113px;
   text-decoration: none;
+  padding-right: 10px;
 `;
 
 const RBPriceItems = styled.span`
@@ -147,7 +158,6 @@ const RBPriceItems = styled.span`
   align-items: center;
   margin-bottom: 10px;
 `;
-
 const Listing: FC = () => {
   const headerItem = [
     "Эмитет",
@@ -162,12 +172,36 @@ const Listing: FC = () => {
       name: "OAO Оптима Банк Акция",
       paper: "Акция простая",
       lastPrice: 2000,
+      capitalization: 42000,
+      quantity: 2100000,
+      sv: pdfIco,
+    },
+    {
+      name: "OAO Оптима Банк Акция",
+      paper: "Акция простая",
+      lastPrice: 2000,
       capitalization: 420000,
       quantity: 2100000,
       sv: pdfIco,
     },
     {
       name: "OAO Оптима Банк Акция",
+      paper: "Акция прdfsfdsf sосrwerwerwrтая",
+      lastPrice: 2000,
+      capitalization: 420e342000,
+      quantity: 2100000,
+      sv: pdfIco,
+    },
+    {
+      name: "OAO Оптима Банк Акция",
+      paper: "Акция простая",
+      lastPrice: 2000,
+      capitalization: 420000,
+      quantity: 2100000,
+      sv: pdfIco,
+    },
+    {
+      name: "OAO Оfsdfdsfdsfптима Банdfsfdsк Акция",
       paper: "Акция простая",
       lastPrice: 2000,
       capitalization: 420000,
@@ -186,39 +220,15 @@ const Listing: FC = () => {
       name: "OAO Оптима Банк Акция",
       paper: "Акция простая",
       lastPrice: 2000,
-      capitalization: 420000,
-      quantity: 2100000,
-      sv: pdfIco,
-    },
-    {
-      name: "OAO Оптима Банк Акция",
-      paper: "Акция простая",
-      lastPrice: 2000,
-      capitalization: 420000,
-      quantity: 2100000,
-      sv: pdfIco,
-    },
-    {
-      name: "OAO Оптима Банк Акция",
-      paper: "Акция простая",
-      lastPrice: 2000,
-      capitalization: 420000,
-      quantity: 2100000,
-      sv: pdfIco,
-    },
-    {
-      name: "OAO Оптима Банк Акция",
-      paper: "Акция простая",
-      lastPrice: 2000,
-      capitalization: 420000,
-      quantity: 2100000,
+      capitalization: 42003232323200,
+      quantity: 21006546464000,
       sv: pdfIco,
     },
   ];
   const categoryC = [
     {
       name: "OAO Оптима Банк Акция",
-      paper: "Акция простая",
+      paper: "d",
       lastPrice: 2000,
       capitalization: 420000,
       quantity: 2100000,
@@ -241,7 +251,7 @@ const Listing: FC = () => {
       sv: pdfIco,
     },
     {
-      name: "OAO Оптима Банк Акция",
+      name: "OAO Оптима Банк Акцdfsdfsdfsdия",
       paper: "Акция простая",
       lastPrice: 2000,
       capitalization: 420000,
@@ -259,7 +269,7 @@ const Listing: FC = () => {
     {
       name: "OAO Оптима Банк Акция",
       paper: "Акция простая",
-      lastPrice: 2000,
+      lastPrice: 209999900,
       capitalization: 420000,
       quantity: 2100000,
       sv: pdfIco,
@@ -286,7 +296,7 @@ const Listing: FC = () => {
         <BanksWrapper>
           {categoryB.map((el, idx) => (
             <BankItem>
-              <BankName to="">{el.name}</BankName>
+              <BankName to="/allinfo">{el.name}</BankName>
               <PriceItems>{el.paper}</PriceItems>
               <PriceItems>{el.lastPrice}</PriceItems>
               <PriceItems>{el.capitalization}</PriceItems>
@@ -342,31 +352,6 @@ const Listing: FC = () => {
             </BankItem>
           ))}
         </BanksWrapper>
-        <ResponsiveBankWrapper>
-          {categoryB.map((el, idx) => (
-            <RBItem>
-              <BankName to="/allinfo">
-                <RBHeaderItem>{headerItem[0]}:</RBHeaderItem> {el.name}
-              </BankName>
-              <RBPriceItems>
-                <RBHeaderItem>{headerItem[1]}:</RBHeaderItem> {el.paper}
-              </RBPriceItems>
-              <RBPriceItems>
-                <RBHeaderItem>{headerItem[2]}:</RBHeaderItem> {el.lastPrice}
-              </RBPriceItems>
-              <RBPriceItems>
-                <RBHeaderItem>{headerItem[3]}:</RBHeaderItem>{" "}
-                {el.capitalization}
-              </RBPriceItems>
-              <RBPriceItems>
-                <RBHeaderItem>{headerItem[4]}:</RBHeaderItem> {el.quantity}
-              </RBPriceItems>
-              <RBPriceItems>
-                <RBHeaderItem>{headerItem[5]}</RBHeaderItem>
-              </RBPriceItems>
-            </RBItem>
-          ))}
-        </ResponsiveBankWrapper>
       </Wrapper>
     </>
   );
