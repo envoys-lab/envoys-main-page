@@ -129,6 +129,11 @@ export const BannerBtnOrange = styled.button`
   background: #f48020;
   border-radius: 5px;
   cursor: pointer;
+
+  @media (max-width: 375px) {
+    font-size: 12px;
+    padding: 7px 27px 7px 22px;
+  }
 `;
 
 export const BannerBtn = styled(BannerBtnOrange)`

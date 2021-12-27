@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const ProposalWrap = styled.div`
-    padding-bottom: 20px; 
+  max-width: 990px;
+  margin: 0 auto;
+  padding: 15px;
+  padding-bottom: 20px; 
 `
 
 export const ProposalList = styled.ul`
@@ -17,6 +20,7 @@ export const ProposalList = styled.ul`
 
     @media (max-width: 768px) {
         grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
   }
   @media (max-width: 425px) {
         grid-template-columns: repeat(1, 1fr);
@@ -26,21 +30,14 @@ export const ProposalList = styled.ul`
 
 export const PropocalItem = styled.li`
     flex: 1;
-    padding: 0 10px;
+    padding: 10px;
     display: flex;
     height: 100%;
     flex-direction: column;
     justify-content: flex-start;
     flex-wrap: wrap;
     border-radius: 10px;
-    box-shadow: 0px 10px 20px rgb(0 0 0 / 6%);
-    @media (max-width: 425px) {
-        padding-top: 20px;
-    }
-    &:hover{
-        background: #E5E5E5;
-        transition: .3s;
-    } 
+    box-shadow: 0px 10px 20px rgb(0 0 0 / 6%); 
 `
 
 export const PropocalitemImg = styled.img`

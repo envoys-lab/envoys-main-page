@@ -37,13 +37,13 @@ const Proposal:React.FC = () => {
             <ProposalList>
                 {info.map((item, index) => {
                     return (
-                        <Link key={index} to='#'>
-                            <PropocalItem>
+                        // <Link key={index} to='#'>
+                            <PropocalItem key={index}>
                                 <PropocalitemImg src={item.img}/>
                                 <PropocalitemTitle>{item.title}</PropocalitemTitle>
                                 <PropocalitemText>{item.text}</PropocalitemText>
                             </PropocalItem>
-                        </Link>
+                        // </Link>
                     )
                 })}
             </ProposalList>
