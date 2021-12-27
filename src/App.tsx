@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router";
 import AllInfo from "./pages/allInfo/AllInfo";
 import Home from "./pages/home/Home";
 import Listing from "./components/Listing/Listing";
+import AdminAdd from "./pages/temporaryAdmin/AdminAdd";
 
 const App: React.FC = () => {
   return (
@@ -20,7 +21,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
-            path="/allinfo"
+            path="/allinfo/:id"
             element={
               <div className="container">
                 <AllInfo />
@@ -32,6 +33,15 @@ const App: React.FC = () => {
             element={
               <div className="container">
                 <Listing />
+              </div>
+            }
+          />
+
+          <Route
+            path="/admin/add/:target"
+            element={
+              <div className="container">
+                <AdminAdd />
               </div>
             }
           />

@@ -3,6 +3,7 @@ import pdfIco from '../../assets/images/sv.svg'
 import LisingHeader from "./lisingHeader";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
+import useCompanies from '../../hooks/useCompanies';
 
 const Wrapper = styled.div`
   max-width: 959px;
@@ -93,36 +94,25 @@ const Border = styled.div`
 
 
 const Listing : FC = () => {
-    const categoryB = [
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco},
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco},
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco},
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco},
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco},
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco},
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco}
-    ]
-    const categoryC = [
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco},
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco},
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco},
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco},
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco},
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco},
-        {name: 'OAO Оптима Банк Акция', paper: 'Акция простая', lastPrice: 2000, capitalization: 420000, quantity: 2100000, sv: pdfIco}
-    ]
+    const categoryB = useCompanies("b");
+    const categoryC = useCompanies("c");
+    console.log(categoryC);
+
     return (
             <>
                 <LisingHeader/>
                 <Wrapper>
                     <Heading>
-                        <HeadingTitle>Категория <span style={{color: '#F48020', marginLeft: '10px'}}> B</span></HeadingTitle>
+                        <HeadingTitle>
+                          Категория <span style={{color: '#F48020', marginLeft: '10px'}}> B</span>
+                        </HeadingTitle>
+                        <Link to="/admin/add/b">Create</Link>
                     </Heading>
                     <BanksWrapper>
                         {
                             categoryB.map((el, idx) =>(
                                     <BankItem>
-                                        <BankName to='/allinfo'>{el.name}</BankName>
+                                        <BankName to={'/allinfo/' + el.id}>{el.name}</BankName>
                                         <PriceItems>{el.paper}</PriceItems>
                                         <PriceItems>{el.lastPrice}</PriceItems>
                                         <PriceItems>{el.capitalization}</PriceItems>
@@ -138,12 +128,13 @@ const Listing : FC = () => {
                 <Wrapper>
                     <Heading>
                         <HeadingTitle>Категория <span style={{color: '#F48020', marginLeft: '10px'}}>C</span></HeadingTitle>
+                        <Link to="/admin/add/c">Create</Link>
                     </Heading>
                     <BanksWrapper>
                         {
                             categoryC.map((el, idx) =>(
                                     <BankItem>
-                                        <BankName to='/allinfo'>{el.name}</BankName>
+                                        <BankName to={'/allinfo/' + el.id}>{el.name}</BankName>
                                         <PriceItems>{el.paper}</PriceItems>
                                         <PriceItems>{el.lastPrice}</PriceItems>
                                         <PriceItems>{el.capitalization}</PriceItems>
