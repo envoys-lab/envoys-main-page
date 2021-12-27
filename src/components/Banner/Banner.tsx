@@ -29,8 +29,8 @@ const Banner: React.FC = () => {
     <BannerWrap>
       <Container>
         <Flex direction="column" align="center" justify="center" height="100%">
-          <BannerFlex justify="space-between" align="center" data-aos="fade-up">
-            <BannertextsWrap>
+          <BannerFlex justify="space-between" align="center">
+            <BannertextsWrap data-aos="fade-right">
               <BannerTitle>Безопасность</BannerTitle>
               <BannerTitleOrange>Скорость</BannerTitleOrange>
               <BannerTitle>Ликвидность</BannerTitle>
@@ -50,7 +50,7 @@ const Banner: React.FC = () => {
               </BannerLinkPos>
             </BannertextsWrap>
 
-            <BannerImgWrap>
+            <BannerImgWrap data-aos="fade-left">
               <BannerImg src={bg} alt="" />
             </BannerImgWrap>
           </BannerFlex>

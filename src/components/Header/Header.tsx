@@ -22,9 +22,10 @@ import { NavLink } from "react-router-dom";
 
 interface Props {
   children?: React.ReactChild | React.ReactNode;
+  activeActions?: number;
+  setActiveActions?: React.Dispatch<React.SetStateAction<any>>;
 }
-const Header: React.FC<Props> = () => {
-  const [activeActions, setActiveActions] = React.useState(0);
+const Header: React.FC<Props> = ({ activeActions, setActiveActions }) => {
   const [burger, setBurger] = React.useState(false);
   const [lang, setLang] = React.useState("English");
   const languages = ["Russian", "Kyrgyz", "English"];
@@ -37,9 +38,10 @@ const Header: React.FC<Props> = () => {
         <MenuList>
           <MenuListItem
             activeActions={activeActions}
-            onClick={() =>
-              activeActions !== 3 ? setActiveActions(3) : setActiveActions(0)
-            }
+            onClick={(e) => {
+              activeActions !== 3 ? setActiveActions(3) : setActiveActions(0);
+              e.stopPropagation();
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -131,9 +133,10 @@ const Header: React.FC<Props> = () => {
         </MenuList>
         <ActionsWrapper>
           <ActionsItem
-            onClick={() =>
-              activeActions !== 1 ? setActiveActions(1) : setActiveActions(0)
-            }
+            onClick={(e) => {
+              activeActions !== 1 ? setActiveActions(1) : setActiveActions(0);
+              e.stopPropagation();
+            }}
           >
             <span className="icon-profile"></span>
             <span>Account</span>
@@ -158,9 +161,10 @@ const Header: React.FC<Props> = () => {
           )}
           <ActionsItem
             className="actions_item"
-            onClick={() =>
-              activeActions !== 2 ? setActiveActions(2) : setActiveActions(0)
-            }
+            onClick={(e) => {
+              activeActions !== 2 ? setActiveActions(2) : setActiveActions(0);
+              e.stopPropagation();
+            }}
           >
             <div className="actions_item-select">
               <svg
