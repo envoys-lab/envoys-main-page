@@ -130,6 +130,21 @@ const Header: React.FC<Props> = ({ activeActions, setActiveActions }) => {
               <span className="menu_link-text">Учебный центр</span>
             </NavLink>
           </MenuListItem>
+          <MenuListItem>
+            <NavLink to="/listing">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 30 30"
+                width="16px"
+                height="16px"
+                fill="#133D65"
+                className="menu_icons1"
+              >
+                <path d="M 4 1 A 3 3 0 0 0 1 4 L 1 26 A 3 3 0 0 0 4 29 L 26 29 A 3 3 0 0 0 29 26 L 29 4 A 3 3 0 0 0 26 1 L 4 1 z M 4 3 L 26 3 A 1 1 0 0 1 27 4 L 27 26 A 1 1 0 0 1 26 27 L 4 27 A 1 1 0 0 1 3 26 L 3 4 A 1 1 0 0 1 4 3 z M 7 7 A 1 1 0 0 0 7 9 L 10 9 A 1 1 0 0 0 10 7 L 7 7 z M 14 7 A 1 1 0 0 0 14 9 L 23 9 A 1 1 0 0 0 23 7 L 14 7 z M 7 14 A 1 1 0 0 0 7 16 L 10 16 A 1 1 0 0 0 10 14 L 7 14 z M 14 14 A 1 1 0 0 0 14 16 L 23 16 A 1 1 0 0 0 23 14 L 14 14 z M 7 21 A 1 1 0 0 0 7 23 L 10 23 A 1 1 0 0 0 10 21 L 7 21 z M 14 21 A 1 1 0 0 0 14 23 L 23 23 A 1 1 0 0 0 23 21 L 14 21 z"></path>
+              </svg>
+              <span className="menu_link-text">Листинг</span>
+            </NavLink>
+          </MenuListItem>
         </MenuList>
         <ActionsWrapper>
           <ActionsItem
