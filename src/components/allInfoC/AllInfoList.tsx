@@ -7,21 +7,6 @@ import useCompany, { Company } from '../../hooks/useCompany';
 import { Link } from 'react-router-dom'
 
 const AllInfoList: React.FC<{id: number}> = ({id}) => {
-    const [info, setInfo] = React.useState([
-        ['Ценная бумага','Акция простая'],
-        ['Торговые символы', 'MAIR'],
-        ['Отрасль', 'Воздушный транспорт'],
-        ['Вид деятельности', 'Наземное аэропортовое обеспечение воздушных судов и обслуживание пассажиров и багажа'],
-        ['Дата прохождения листинга', '2008-07-22 00:00:00'],
-        ['ФИО руководителя', 'Шаршеев Бакыт Октябрович'],
-        ['Должность руководителя', 'Председатель Правления'],
-        ['Адрес', '720062, г.Бишкек, аэропорт "Манас"'],
-        ['Телефон / Факс', '69 30 17, 69 31 09'],
-        ['Аудитор', 'ЗАО "В. Якобс-Аудит"'],
-        ['Регистратор', 'ОсОО "Реестродержатель Медина"'],
-        ['Маркет-мейкер', 'Нет'],
-    ])
-
     const [info2, setInfo2] = React.useState([
         ['Бухгалтерский Баланс', ''],
         ['Листинговый проспект', 'Архив'],
@@ -36,7 +21,10 @@ const AllInfoList: React.FC<{id: number}> = ({id}) => {
     const editUri = "/admin/add/" + (company ? company.id : "");
     return (
         <AllInfoListBlock>
-            <AllInfoListTitle>{company && company.name}	{company && company.paper} <Link to={editUri}>Edit</Link> </AllInfoListTitle>
+            <AllInfoListTitle>
+                {company && company.name}	{company && company.paper} 
+                <Link to={editUri}>Edit</Link> {/* TODO: admin only */}
+            </AllInfoListTitle>
 
             <AllInfoListWrap>
                 <AllInfoListFlex>

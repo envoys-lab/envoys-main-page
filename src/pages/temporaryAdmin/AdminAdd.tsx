@@ -8,15 +8,13 @@ const AdminAdd: React.FC<{id?: number}> = ({id}) => {
     const params = useParams();
     // const category = isString
     let targetId: number | undefined = undefined;
-    let [category, setCategory] = React.useState("b");
+    let [category, setCategory] = React.useState(params.target);
     if(params.target) {
         targetId = parseInt(params.target);
         if(isNaN(targetId)) {
             targetId = undefined;
-            setCategory(params.target);
         }
     }
-    console.log("category", category);
 
     let company: Company | undefined = useCompany(targetId!);
     const form = [
@@ -120,6 +118,7 @@ const AdminAdd: React.FC<{id?: number}> = ({id}) => {
                 set(keyvalue[item.name]);
             })
 
+            console.log("set category", company!.category);
             setCategory(company!.category);
         }
     }, [company])

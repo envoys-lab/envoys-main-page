@@ -185,11 +185,12 @@ const Listing: FC = () => {
             Категория{" "}
             <span style={{ color: "#F48020", marginLeft: "10px" }}> B</span>
           </HeadingTitle>
+          <Link to={"/admin/add/b"}>Add</Link> {/* TODO: admin only */}
         </Heading>
         <BanksWrapper>
           {categoryB.map((el, idx) => (
             <BankItem>
-              <BankName to="/allinfo">{el.name}</BankName>
+              <BankName to={`/allinfo/${el.id}`}>{el.name}</BankName>
               <PriceItems>{el.paper}</PriceItems>
               <PriceItems>{el.lastPrice}</PriceItems>
               <PriceItems>{el.capitalization}</PriceItems>
@@ -202,7 +203,7 @@ const Listing: FC = () => {
         <ResponsiveBankWrapper>
           {categoryB.map((el, idx) => (
             <RBItem>
-              <BankName to="/allinfo">
+              <BankName to={`/allinfo/${el.id}`}>
                 <RBHeaderItem>{headerItem[0]}:</RBHeaderItem> {el.name}
               </BankName>
               <RBPriceItems>
@@ -232,11 +233,12 @@ const Listing: FC = () => {
             Категория{" "}
             <span style={{ color: "#F48020", marginLeft: "10px" }}>C</span>
           </HeadingTitle>
+          <Link to={"/admin/add/c"}>Add</Link> {/* TODO: admin only */}
         </Heading>
         <BanksWrapper>
           {categoryC.map((el, idx) => (
             <BankItem>
-              <BankName to="/allinfo">{el.name}</BankName>
+              <BankName to={`/allinfo/${el.id}`}>{el.name}</BankName>
               <PriceItems>{el.paper}</PriceItems>
               <PriceItems>{el.lastPrice}</PriceItems>
               <PriceItems>{el.capitalization}</PriceItems>
@@ -248,7 +250,7 @@ const Listing: FC = () => {
         <ResponsiveBankWrapper>
           {categoryB.map((el, idx) => (
             <RBItem>
-              <BankName to="/allinfo">
+              <BankName to={`/allinfo/${el.id}`}>
                 <RBHeaderItem>{headerItem[0]}:</RBHeaderItem> {el.name}
               </BankName>
               <RBPriceItems>
