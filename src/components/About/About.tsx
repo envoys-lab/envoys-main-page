@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import baner from "../../assets/images/banner.svg";
 import logo from "../../assets/images/smolbt.jpg";
-import Proposal from "../proposal/Proposal";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Wrapper = styled.div`
   max-width: 1140px;
   margin: 0 auto;
@@ -166,8 +166,10 @@ const CardListItem = styled.span`
     top: 2px;
   }
 `;
-
 const About: FC = () => {
+  React.useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
   const listItem = [
     "Получите финансированее от ведущий инвестеров",
     "Подайте заявку на участие в программе акселерация",
@@ -225,8 +227,6 @@ const About: FC = () => {
           </CardList>
         </Card>
       </CardWrapper>
-
-      <Proposal/>
     </Wrapper>
   );
 };

@@ -10,9 +10,13 @@ import Listing from "./components/Listing/Listing";
 import AdminAdd from "./pages/temporaryAdmin/AdminAdd";
 
 const App: React.FC = () => {
+  const [activeActions, setActiveActions] = React.useState(0);
   return (
-    <div className="App">
-      <Header />
+    <div className="App" onClick={() => setActiveActions(0)}>
+      <Header
+        activeActions={activeActions}
+        setActiveActions={setActiveActions}
+      />
       <BreadCrumbs />
       <div className="container">
         <Search />

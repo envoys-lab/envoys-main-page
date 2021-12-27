@@ -19,6 +19,7 @@ export const HowItWorksText = styled.div<Props>`
     line-height: 56px;
     margin: 0;
     margin-bottom: 35px;
+
   }
   .subtitle {
     font-size: 18px;
@@ -45,6 +46,15 @@ export const HowItWorksText = styled.div<Props>`
     .subtitle {
       font-size: 16px;
       line-height: 18px;
+    }
+  }
+  @media (max-width: 375px) {
+    .title {
+      font-size: 24px;
+      line-height: 26px;
+    }
+    .subtitle {
+      font-size: 14px;
     }
   }
 `;

@@ -10,7 +10,7 @@ export const NavWrapper = styled.div<Props>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px 15px 60px;
+  padding: 15px 20px 15px 15px;
   font-size: 14px;
   color: #133d65;
   .logo {
@@ -20,6 +20,13 @@ export const NavWrapper = styled.div<Props>`
   @media (max-width: 1210px) {
     padding: 15px 10px 15px 15px;
   }
+  @media (max-width: 1160px) {
+    .logo {
+      width: 180px;
+      height: 30px;
+    }
+  }
+
   @media (max-width: 768px) {
     padding: 15px 10px 15px 15px;
     .logo {
@@ -29,14 +36,14 @@ export const NavWrapper = styled.div<Props>`
   }
 `;
 export const NavInner = styled.div<Props>`
-  width: 70%;
+  width: 75%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
   transition: all 0.3s;
   @media (max-width: 1210px) {
-    width: 74%;
+    width: 81%;
   }
   @media (max-width: 768px) {
     width: 72%;
