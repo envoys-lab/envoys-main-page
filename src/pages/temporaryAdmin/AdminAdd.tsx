@@ -3,6 +3,7 @@ import React from "react";
 import { useParams } from "react-router";
 import useCompany, { Company } from "../../hooks/useCompany";
 import Config from "../../config";
+import Api from "api";
 
 const AdminAdd: React.FC<{id?: number}> = ({id}) => {
     const params = useParams();
@@ -118,7 +119,6 @@ const AdminAdd: React.FC<{id?: number}> = ({id}) => {
                 set(keyvalue[item.name]);
             })
 
-            console.log("set category", company!.category);
             setCategory(company!.category);
         }
     }, [company])
@@ -131,14 +131,14 @@ const AdminAdd: React.FC<{id?: number}> = ({id}) => {
         })
 
         const suffix = company ? `/${company.id}` : "";
-        axios.post(`${Config.api}/add${suffix}`, {
+        Api.method(`/add${suffix}`).post({
             ...formData,
             category: category
         }).then(res => {
-
-            return window.location.href = "/allinfo/" + res.data.id;
-
-        });
+            if(res && res.data.id > 0) {
+                return window.location.href = "/allinfo/" + res.data.id;
+            } 
+        })
     }
 
     const remove = () => {
