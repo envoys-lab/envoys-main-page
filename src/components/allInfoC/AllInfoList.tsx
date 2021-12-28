@@ -6,18 +6,16 @@ import { AllInfoListTitle, AllInfoListBlock, AllInfoListIs, AllInfoListWrap, All
 import useCompany, { Company } from '../../hooks/useCompany';
 import { Link } from 'react-router-dom'
 import useAdmin from 'hooks/useAdmin'
+import Config from 'config'
+
+function b64DecodeUnicode(str) {
+    // Going backwards: from bytestream, to percent-encoding, to original string.
+    return decodeURIComponent(atob(str).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+}
 
 const AllInfoList: React.FC<{id: number}> = ({id}) => {
-    const [info2, setInfo2] = React.useState([
-        ['Бухгалтерский Баланс', ''],
-        ['Листинговый проспект', 'Архив'],
-        ['Отчет о финансовых результатах', 'Архив'],
-        ['Отчет о движении денежных средств', 'Архив'],
-        ['Отчет об изменениях в капитале', 'Архив'],
-        ['Аудиторское заключение', 'Архив'],
-        ['Кодекс корпоративного управления', 'Архив'],
-    ])
-
     const company = useCompany(id);
     const editUri = "/admin/add/" + (company ? company.id : "");
     const { isAdmin } = useAdmin();
@@ -46,8 +44,14 @@ const AllInfoList: React.FC<{id: number}> = ({id}) => {
                     </AllInfoListIs>
 
                     <AllInfoListIs2>
-                        {info2.map((item, index) => {
-                            return <AllInfoListItem2 key={index} name={item[0]} value={item[1]}/>
+                        {company && company!.files.split(";").map(item => {
+                            const fragments = item.split(".");
+                            if(fragments.length !== 3) {
+                                return <>Error load file {item}</>;
+                            }
+                            const name = b64DecodeUnicode(fragments[1]);
+
+                            return <AllInfoListItem2 url={`${Config.api}/companies/${item}`} key={item} name={name} value={""}/>
                         })}
                     </AllInfoListIs2>
                 </AllInfoListFlex>

@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import useCompany, { Company } from "../../hooks/useCompany";
 import Config from "../../config";
 import Api from "api";
+import FileUploader from "components/File/FileUploader";
 
 const AdminAdd: React.FC<{id?: number}> = ({id}) => {
     const params = useParams();
@@ -101,6 +102,7 @@ const AdminAdd: React.FC<{id?: number}> = ({id}) => {
         },
         
     ];
+    const [files, setFiles] = React.useState([]);
 
     React.useEffect(() => {
         if(company) {
@@ -120,6 +122,12 @@ const AdminAdd: React.FC<{id?: number}> = ({id}) => {
             })
 
             setCategory(company!.category);
+
+            if(company!.files.length > 1) {
+                const files = company!.files.split(";");
+                setFiles(files);
+            }
+            
         }
     }, [company])
     
@@ -131,12 +139,14 @@ const AdminAdd: React.FC<{id?: number}> = ({id}) => {
         })
 
         const suffix = company ? `/${company.id}` : "";
+        console.log(files.join(";"));
         Api.method(`/add${suffix}`).post({
             ...formData,
-            category: category
+            category: category,
+            files: files.join(";")
         }).then(res => {
-            if(res && res.data.id > 0) {
-                return window.location.href = "/allinfo/" + res.data.id;
+            if(res && res.id > 0) {
+                return window.location.href = "/allinfo/" + res.id;
             } 
         })
     }
@@ -146,6 +156,15 @@ const AdminAdd: React.FC<{id?: number}> = ({id}) => {
         axios.post("${Config.api}/remove/"+ targetId).then(res => {
             console.log(res.data);
         });
+    }
+
+
+    const onFileUploaded = (filename) => {
+        setFiles([...files, filename]);
+    }
+    const removeFile = (filename) => {
+        const newFiles = files.filter(file => file !== filename);
+        setFiles(newFiles);
     }
     return <>
 
@@ -161,7 +180,15 @@ const AdminAdd: React.FC<{id?: number}> = ({id}) => {
                 </div>
             })}
             
-            
+            {files.map(file => {
+                return <div>
+                    File 
+                    <a href={`${Config.api}/companies/${file}`} target="blank"> {file}</a>
+                    <button onClick={() => removeFile(file)} type="button" className="btn btn-danger btn-sm" style={{marginLeft: "10px"}}>x</button>
+                </div>
+            })}
+            <FileUploader onChange={onFileUploaded} to={`companies`} />
+
             <br></br>
             <div className="form-group">
                 <button type="button" className="btn btn-primary" onClick={send}>Submit</button>
@@ -172,6 +199,7 @@ const AdminAdd: React.FC<{id?: number}> = ({id}) => {
                     <button type="button" className="btn btn-danger" onClick={remove}>Delete</button>
                 </div>
                 <br></br>
+
             </>)
             }
         </form>

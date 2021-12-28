@@ -6,6 +6,7 @@ import icon from '../../assets/images/save.svg'
 type Props = {
     name: string
     value: string
+    url: string
 }
 
 const AllInfoListItem2:React.FC<Props> = (props) => {
@@ -15,9 +16,16 @@ const AllInfoListItem2:React.FC<Props> = (props) => {
             <Flex justify='space-between'>
                 <Flex>
                     <AllInfoListIcon src={icon}/>
-                    <AllInfoItemTitle>{props.name}</AllInfoItemTitle>
+                    <AllInfoItemTitle>
+                        <a href={props.url} target="_blank">
+                            {props.name}
+                        </a>
+                    </AllInfoItemTitle>
+                        
                 </Flex>
-                <AllInfoItemTitle>{props.value}</AllInfoItemTitle>
+                <AllInfoItemTitle>
+                    {props.value}
+                </AllInfoItemTitle>
             </Flex>
         </AllInfoItem>
     )

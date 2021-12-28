@@ -21,7 +21,8 @@ export interface Company {
     kind: string;
     branch: string;
     symbol: string;
-
+    files: string;
+    
     createdAt: string;
     updatedAt: string;
 }

@@ -7,12 +7,13 @@ class ApiMethod {
     private _authKey: string;
     private _config: AxiosRequestConfig<object> = {};
 
-    constructor(uri: string, authKey: string) {
+    constructor(uri: string, authKey: string, headers: object = {}) {
         this._uri = uri;
         this._authKey = authKey;
         this._config = {
             headers: {
-                "Admin-Auth-Key": this._authKey
+                "Admin-Auth-Key": this._authKey,
+                ...headers
             } 
         }
     }
@@ -33,8 +34,8 @@ class ApiMethod {
 }
 
 class Api {
-    static method(uri: string) {
-        return new ApiMethod(uri, this._getAuthKey());
+    static method(uri: string, headers?: object) {
+        return new ApiMethod(uri, this._getAuthKey(), headers);
     }
 
     private static _getAuthKey() : string {
